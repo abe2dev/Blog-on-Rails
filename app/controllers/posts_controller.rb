@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     def update
         @post = Post.find params[:id]
         if @post.update params.require(:post).permit(:title, :body)
-            redirect_to post_path(@post)
+            redirect_to post_path(@post), { notice: "Post updated successfully", status: 303 }
         else
             render :edit, status:303
         end

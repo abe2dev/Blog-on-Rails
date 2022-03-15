@@ -7,14 +7,17 @@
     <title>Blog on Rails</title>
 </head>
 <body>
+
+<%= link_to 'new', new_post_path %>
+<br>
 <% flash.each do |type, msg| %>
     <%= msg %>
     <br>
 <% end %>
 
 <% @posts.each do |post| %>
-    <%= post.title %>
-    <%= post.body %>
+    <%= link_to post.title, post_path(post) %>
+    <br>
 <% end %>
     
 </body>
