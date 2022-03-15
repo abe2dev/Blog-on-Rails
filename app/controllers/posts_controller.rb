@@ -1,22 +1,22 @@
 class PostsController < ApplicationController
     def index 
-        @posts = Post.all
+        @posts = Post.order(created_at: :desc)
     end
     
     def show
         @post = Post.find params[:id]
         @comment = Comment.new
-        @comments = Comment.all
+        @comments = Comment.order(created_at: :desc)
     rescue => e
-        redirect_to posts_path, alert: e.message 
+        redirect_to root_path, alert: e.message 
     end 
 
     def destroy
         @post = Post.find params[:id]
         @post.destroy
-        redirect_to posts_path, { notice: "Post deleted successfully", status: 303 }
+        redirect_to root_path, { notice: "Post deleted successfully", status: 303 }
     rescue => e
-        redirect_to posts_path, alert: e.message
+        redirect_to root_path, alert: e.message
     end 
 
     def new
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     def edit
         @post = Post.find params[:id]
     rescue => e
-        redirect_to posts_path, alert: e.message
+        redirect_to root_path, alert: e.message
     end
 
     def update
@@ -46,6 +46,6 @@ class PostsController < ApplicationController
             render :edit, status:303
         end
     rescue => e
-        redirect_to posts_path, alert: e.message
+        redirect_to root_path, alert: e.message
     end
 end

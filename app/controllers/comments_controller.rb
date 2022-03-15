@@ -6,9 +6,11 @@ class CommentsController < ApplicationController
         if @comment.save
             redirect_to post_path(@post)
         else
-            @comments = Comment.all
+            @comments = Comment.order(created_at: :desc)
             render 'posts/show', status: 303
         end
+    rescue => e
+        redirect_to root_path, alert: e.message
     end
 
     def destroy
@@ -16,5 +18,8 @@ class CommentsController < ApplicationController
         @comment.destroy
         @post = Post.find params[:post_id]
         redirect_to post_path(@post), status: 303
+    rescue => e
+        redirect_to root_path, alert: e.message
     end
+    
 end

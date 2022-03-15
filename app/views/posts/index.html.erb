@@ -8,8 +8,6 @@
 </head>
 <body>
 
-<%= link_to 'new', new_post_path %>
-<br>
 <% flash.each do |type, msg| %>
     <%= msg %>
     <br>
@@ -17,6 +15,7 @@
 
 <% @posts.each do |post| %>
     <%= link_to post.title, post_path(post) %>
+    <%= post.body %>
     <br>
 <% end %>
     
