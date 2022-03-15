@@ -5,6 +5,8 @@ class PostsController < ApplicationController
     
     def show
         @post = Post.find params[:id]
+        @comment = Comment.new
+        @comments = Comment.all
     rescue => e
         redirect_to posts_path, alert: e.message 
     end 

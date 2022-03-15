@@ -21,5 +21,25 @@
     <%= link_to 'Delete', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
 <% end %>
 
+<br>
+<% @comment&.errors&.full_messages.each do |msg| %>
+    <%= msg %>
+    <br>
+<% end %>
+
+<%= form_with model: @comment, url: post_comments_path(@post) do |form| %>
+    <%= form.label "Comment" %>
+    <br>
+    <%= form.text_area :body, size: "60x3" %>
+    <br>
+    <%= form.submit :Submit %>
+<% end %>
+
+<% @comments&.each do |comment| %>
+    <%= comment.body %>
+    <%= link_to 'Delete', post_comment_path(@post, comment), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    <br>
+<% end %>
+
 </body>
 </html>
