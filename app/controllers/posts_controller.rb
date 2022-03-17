@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     def show
         @post = Post.find params[:id]
         @comment = Comment.new
-        @comments = Comment.order(created_at: :desc)
+        @comments = @post.comments.order(created_at: :desc)
     rescue => e
         redirect_to root_path, alert: e.message 
     end 

@@ -1,0 +1,99 @@
+/* Index view */
+.main {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.posts > .post {
+  margin: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+}
+
+.posts > .post > a {
+  padding-bottom: 5px;
+  font-size: x-large;
+  font-weight: bold;
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.posts > .post > p {
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Show view */
+main.post {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.post > .buttons {
+  display: flex;
+}
+
+.buttons > form > button {
+  margin-right: 5px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.post > .details > .title {
+  font-size: x-large;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+.post > .details > .body {
+  margin-top: 10px;
+  font-size: medium;
+  word-break: break-all;
+}
+
+.post > .details > .date {
+  margin-top: 15px;
+  font-size: x-small;
+}
+
+/* New/Edit form view */
+.form-post {
+  padding: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.input-group>label {
+  margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

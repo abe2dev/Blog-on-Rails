@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog on Rails</title>
-</head>
-<body>
-
-<% flash.each do |type, msg| %>
-    <%= msg %>
-    <br>
+<main class="posts">
+<% @posts.each do |post| %> 
+    <article class="post">
+        <%= link_to post.title, post_path(post) %>
+        <p><%= post.body %></p>
+    </article>
 <% end %>
-
-<% @posts.each do |post| %>
-    <%= link_to post.title, post_path(post) %>
-    <%= post.body %>
-    <br>
-<% end %>
-    
-</body>
-</html>
+</main>

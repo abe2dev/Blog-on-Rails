@@ -1,0 +1,45 @@
+.new.comment {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.new.comment > label,
+.field_with_errors > textarea {
+    font-size: large;
+    font-weight: bold;
+}
+
+.new.comment > textarea,
+.field_with_errors > textarea {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.new.comment>p {
+    margin-bottom: 10px;
+    color: red;
+}
+
+.new.comment > input {
+    padding: 5px;
+    width: 60px;
+}
+
+.comments {
+  padding: 15px;
+}
+
+.comment {
+  margin-bottom: 10px;
+}
+
+.comment > .body {
+  word-break: break-all;
+}
+
+.comment > .date {
+  margin-top: 5px;
+  font-size: x-small;
+}

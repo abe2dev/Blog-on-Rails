@@ -10,6 +10,62 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require reset
+ *= require post
+ *= require comment
  *= require_tree .
  *= require_self
  */
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+header {
+  padding: 15px;
+  background-color: rgb(236, 241, 245);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+nav > .brand > a {
+  font-size: x-large;
+  color: blue;
+}
+
+nav > .menu {
+  font-size: medium;
+}
+
+nav > ul {
+  display: flex;
+  list-style: none;
+}
+
+nav > ul > li > a {
+  margin-left: 10px;
+  color: blue;
+}
+
+input[type=submit], button {
+  color: blue;
+  border-color: blue;
+  border-radius: 5px;
+  background-color: white;
+  font: arial;
+  font-size: 15px;
+  height: 35px;
+}
+
+
+
+
+
+
+
+
