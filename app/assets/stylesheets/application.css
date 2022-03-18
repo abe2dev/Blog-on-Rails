@@ -17,14 +17,14 @@
  *= require_self
  */
 
-a {
+ a {
   text-decoration: none;
   color: blue;
 }
 
 header {
   padding: 15px;
-  background-color: rgb(236, 241, 245);
+  background-color: lightgray;
 }
 
 nav {
@@ -38,21 +38,18 @@ nav > .brand > a {
   color: blue;
 }
 
-nav > .menu {
-  font-size: medium;
-}
-
 nav > ul {
   display: flex;
   list-style: none;
 }
 
 nav > ul > li > a {
-  margin-left: 10px;
+  margin-left: 20px;
   color: blue;
 }
 
-input[type=submit], button {
+input[type="submit"],
+button {
   color: blue;
   border-color: blue;
   border-radius: 5px;
@@ -62,10 +59,26 @@ input[type=submit], button {
   height: 35px;
 }
 
+@media only screen and (max-width: 960px) {
+  .posts {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  article {
+    flex-grow: 1;
+    width: 50%;
+  }
+}
 
-
-
-
-
-
-
+@media only screen and (max-width: 600px) {
+  .posts {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  article {
+    flex-grow: 1;
+    width: 100%;
+  }
+}

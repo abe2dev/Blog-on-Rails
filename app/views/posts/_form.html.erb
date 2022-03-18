@@ -1,13 +1,19 @@
-<%= form_with model: @post do |form| %>
-    <div class="form-post"> 
-        <div class="input-group" >
-            <%= form.label :title %>
-            <%= form.text_field :title %>
-        </div>
-        <div class="input-group" >
-            <%= form.label :body %>
-            <%= form.text_area :body, size: "60x10" %>
-        </div>
-        <%= form.submit %>
+  <%= form_with model: @post do |form| %>
+    <div class="post-form">
+      <div class="input-group">
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+        <% if @post.errors.any? %>
+          <p><%= @post.errors.full_messages_for(:title).join(", ") %></p>
+        <% end %>
+      </div>
+      <div class="input-group">
+        <%= form.label :body %>
+        <%= form.text_area :body, size: "60x10" %>
+        <% if @post.errors.any? %>
+          <p><%= @post.errors.full_messages_for(:body).join(", ") %></p>
+        <% end %>
+      </div>
+      <%= form.submit %>
     </div>
-<% end %>
+  <% end %>
