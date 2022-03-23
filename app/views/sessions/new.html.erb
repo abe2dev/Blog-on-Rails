@@ -1,0 +1,16 @@
+  <% flash.each do |type, msg| %>
+    <p class="<%= type %>"><%= msg %></p>
+  <% end %>
+  <%= form_with url: sessions_path do |form| %>
+    <div class="signin-form">
+      <div class="input-group">
+        <%= form.label :email %>
+        <%= form.email_field :email, required: :required %>
+      </div>
+      <div class="input-group">
+        <%= form.label :password %>
+        <%= form.password_field :password, required: :required %>
+      </div>
+      <%= form.submit "Log In" %>
+    </div>
+  <% end %>

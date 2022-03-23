@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: 'posts#index'
 
-  resources :posts do
-    resources :comments, only: [:create, :destroy]
+  resources :posts, except: [:index] do
+    resources :comments, shallow: true, only: [:create, :destroy]
   end
+
+  resources :users, only: [:new, :create, :edit, :update]
+  resource :session, only: [:new]
+  resources :sessions, only: [:create, :destroy]
 end

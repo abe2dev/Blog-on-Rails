@@ -1,0 +1,25 @@
+  <%= form_with model: @user do |form| %>
+    <div class="user-form">
+      <div class="input-group">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+      <div class="input-group">
+        <%= form.label :email %>
+        <%= form.email_field :email %>
+        <% if @user.errors.any? %>
+          <p><%= @user.errors.full_messages_for(:email).join(", ") %></p>
+        <% end %>
+      </div>
+      <div class="input-group">
+        <%= form.label :password %>
+        <%= form.password_field :password, required: :required %>
+      </div>
+      <div class="input-group">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation, required: :required %>
+      </div>
+      
+      <%= form.submit %>
+    </div>
+  <% end %>
