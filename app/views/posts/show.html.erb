@@ -1,0 +1,33 @@
+<% if @post %>
+  <main class="post">
+    <div class="details">
+      <p class="title"><%= @post.title %></p>
+      <p class="body"><%= @post.body %></p>
+      <p class="date">Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
+    </div>
+    <div class="buttons">
+      <%= button_to 'Edit', edit_post_path(@post), method: :get %>
+      <%= button_to 'Delete',post_path(@post), method: :delete %>
+    </div>
+  </main>
+<% end %>
+ 
+<%= form_with model: @comment, url: post_comments_path(@post) do |form| %>
+  <div class="comment-form">
+    <%= form.label :body, "Comment" %>
+    <%= form.text_area :body, maxlength: "255", rows: "5" %>
+    <% if @comment.errors.any? %>
+      <p><%= @comment.errors.full_messages.join(", ") %></p>
+    <% end %>
+    <%= form.submit :Submit %>
+  </div>
+<% end %>
+
+<section class="comments">
+  <% @comments&.each do |comment| %>
+    <article class="comment">
+      <p class="body"><%= comment.body %></p>
+      <p class="date">Commented <%= time_ago_in_words(comment.created_at) %> ago • <%= link_to 'Delete', post_comment_path(@post, comment), data: { turbo_method: :delete } %></p>
+    </article>
+  <% end %>
+</section>

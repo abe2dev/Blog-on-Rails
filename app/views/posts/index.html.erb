@@ -1,0 +1,10 @@
+  <main class="posts">
+    <% @posts.each do |post| %>
+      <article class="post">
+        <div class="details">
+          <%= link_to post.title, post_path(post) %>
+          <p><%= post.body %></p>
+        </div>
+      </article>
+    <% end %>
+  </main>

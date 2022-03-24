@@ -1,0 +1,106 @@
+/* Index view */
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+article {
+  flex-grow: 1;
+  width: 33%;
+}
+
+.posts > .post > .details {
+  margin: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+}
+
+.posts > .post > .details > a {
+  padding-bottom: 5px;
+  font-size: x-large;
+  font-weight: bold;
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.posts > .post > .details > p {
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Show view */
+main.post {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+main.post > .buttons {
+  display: flex;
+}
+
+main.post > .buttons > form > button {
+  margin-right: 5px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+main.post > .details > .title {
+  font-size: x-large;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+main.post > .details > .body {
+  margin-top: 10px;
+  font-size: medium;
+  word-break: break-all;
+}
+
+main.post > .details > .date {
+  margin-top: 15px;
+  font-size: x-small;
+}
+
+/* New/Edit form views */
+.post-form {
+  padding: 15px;
+  margin: 10px 0;
+}
+
+.post-form > .input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-form > .input-group > .field_with_errors {
+  display: flex;
+  width: 100%;
+}
+
+.post-form > .input-group > label,
+.post-form > .input-group > .field_with_errors > label {
+  margin: 10px 0;
+}
+
+.post-form > .input-group > .field_with_errors > input[type="text"] {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.post-form > .input-group > textarea,
+.post-form > .input-group > .field_with_errors > textarea {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.post-form > .input-group > p {
+  margin-bottom: 10px;
+  color: red;
+}

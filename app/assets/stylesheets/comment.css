@@ -1,0 +1,48 @@
+.comment-form {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form > .field_with_errors {
+  width: 100%;
+}
+
+.comment-form > label,
+.comment-form > .field_with_errors > label {
+  font-size: large;
+  font-weight: bold;
+}
+
+.comment-form > textarea,
+.comment-form > .field_with_errors > textarea {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.comment-form > p {
+  margin-bottom: 10px;
+  color: red;
+}
+
+.comment-form > input {
+  padding: 5px;
+  width: 100px;
+}
+
+.comments {
+  padding: 15px;
+}
+
+.comment {
+  margin-bottom: 10px;
+}
+
+.comment > .body {
+  word-break: break-all;
+}
+
+.comment > .date {
+  margin-top: 5px;
+  font-size: x-small;
+}
