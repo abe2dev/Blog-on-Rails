@@ -1,0 +1,30 @@
+  <%= form_with model: @user do |form| %>
+    <div class="signup-form">
+      <div class="input-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, required: :required, minLength: 3 %>
+        <% if @user.errors.any? %>
+          <p><%= @user.errors.full_messages_for(:name).join(", ") %></p>
+        <% end %>
+      </div>
+      <div class="input-group">
+        <%= form.label :email %>
+        <%= form.email_field :email, required: :required %>
+        <% if @user.errors.any? %>
+          <p><%= @user.errors.full_messages_for(:email).join(", ") %></p>
+        <% end %>
+      </div>
+      <div class="input-group">
+        <%= form.label :password %>
+        <%= form.password_field :password, required: :required %>
+      </div>
+      <div class="input-group">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation, required: :required  %>
+        <% if @user.errors.any? %>
+          <p><%= @user.errors.full_messages_for(:password_confirmation).join(", ") %></p>
+        <% end %>
+      </div>
+      <%= form.submit %>
+    </div>
+  <% end %>
