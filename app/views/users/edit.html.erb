@@ -1,28 +1,23 @@
-  <% flash.each do |type, msg| %>
-    <p class="<%= type %>"><%= msg %></p>
-  <% end %>
   <%= form_with model: @user do |form| %>
     <div class="user-form">
       <div class="input-group">
         <%= form.label :name %>
-        <%= form.text_field :name %>
+        <%= form.text_field :name, required: :required, minLength: 3 %>
       </div>
       <div class="input-group">
         <%= form.label :email %>
-        <%= form.email_field :email %>
+        <%= form.email_field :email, required: :required %>
         <% if @user.errors.any? %>
           <p><%= @user.errors.full_messages_for(:email).join(", ") %></p>
         <% end %>
       </div>
       <div class="input-group">
-        <%= form.label :password %>
-        <%= form.password_field :password, required: :required %>
+        <%flash.each do |type, msg| %>
+          <p class="<%= type %>"><%= msg %></p>
+        <% end %>
       </div>
-      <div class="input-group">
-        <%= form.label :password_confirmation %>
-        <%= form.password_field :password_confirmation, required: :required %>
-      </div>
-      
       <%= form.submit %>
     </div>
   <% end %>
+  <div class="change-password-link"><%= link_to 'Change password', change_password_path %></div>
+  

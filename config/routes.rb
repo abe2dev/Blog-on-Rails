@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   resources :posts, except: [:index] do
-    resources :comments, shallow: true, only: [:create, :destroy]
+    resources :comments, shallow: true, only: %i[create destroy]
   end
-
-  resources :users, only: [:new, :create, :edit, :update]
+  get '/change_password', to: 'users#change_password', as: :change_password
+  post '/update_password', to: 'users#update_password', as: :update_password
+  resources :users, only: %i[new create edit update]
   resource :session, only: [:new]
-  resources :sessions, only: [:create, :destroy]
+  resources :sessions, only: %i[create destroy]
 end
